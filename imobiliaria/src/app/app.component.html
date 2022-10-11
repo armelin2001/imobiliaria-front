@@ -1,4 +1,14 @@
 <app-menu-superior></app-menu-superior>
-<app-card-imoveis></app-card-imoveis>
-<app-card-imoveis></app-card-imoveis>
+  <mat-grid-list cols="5" gutterSize="15px">
+      <mat-grid-tile colspan="1" *ngFor="let imovel of imoveis">
+        <app-card-imoveis 
+        [tipoImovel]="imovel.tipoImovel"
+        [bairroEestado]="imovel.bairroEestado"
+        [valor]="imovel.valor"
+        [nomeRua]="imovel.nomeRua"
+      ></app-card-imoveis>
+      </mat-grid-tile>
+  </mat-grid-list>
+  
+  
 <router-outlet></router-outlet>

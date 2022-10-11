@@ -1,11 +1,25 @@
-<div class="testeCard">
-    <mat-card>
-        <mat-card-title>Título do Card</mat-card-title>
-        <mat-card-subtitle>Subtítulo do Card</mat-card-subtitle>
-        <mat-card-content>Conteúdo do card!</mat-card-content>
+<div class="item">
+    <mat-card class="card">
+        <mat-card-title-group>
+            <mat-card-title>{{nomeRua}}</mat-card-title>
+            <mat-card-subtitle>{{tipoImovel}}</mat-card-subtitle>
+            <mat-card-subtitle>{{bairroEestado}}</mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+            <p>{{teste}}</p>
+        </mat-card-content>
+        <mat-card-footer class="footer">
+           <strong> R$ {{valor}} </strong>
+        </mat-card-footer>
         <mat-card-actions>
+            <!--
+                fazer as açoes
             <button mat-button>BOTÃO 1</button>
             <button mat-raised-button color="primary">BOTÃO 2</button>
+            -->
         </mat-card-actions>
-    </mat-card>
+        
+    </mat-card>    
+    
+    
 </div>
