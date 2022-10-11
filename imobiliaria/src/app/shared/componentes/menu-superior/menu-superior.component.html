@@ -1,9 +1,13 @@
 <mat-toolbar color="primary" class="toolbar">
     <mat-toolbar-row>
-        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <button mat-button [matMenuTriggerFor]="menu">Buscar imóveis</button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Item 1</button>
-            <button mat-menu-item>Item 2</button>
+            <button mat-menu-item>Imóveis para alugar</button>
+            <button mat-menu-item>Imóveis para comprar</button>
         </mat-menu>
+
+        <button mat-button>Para corretores</button>
+
     </mat-toolbar-row>
+
 </mat-toolbar>
