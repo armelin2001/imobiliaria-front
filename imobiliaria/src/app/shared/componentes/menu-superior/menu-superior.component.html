@@ -1,5 +1,8 @@
 <mat-toolbar color="primary" class="toolbar">
     <mat-toolbar-row>
+        <button mat-button (click)="voltaHome()">
+            <mat-icon>home</mat-icon>
+        </button>
         <button mat-button [matMenuTriggerFor]="menu">Buscar imóveis</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item>Imóveis para alugar</button>

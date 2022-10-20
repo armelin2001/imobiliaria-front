@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-imoveis',
@@ -20,9 +21,15 @@ export class CardImoveisComponent implements OnInit {
   bairroEestado: string = '';
 
   teste = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque minima veniam, '
-  constructor() { }
+  
+  mostraVisualizar = true;
+  
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  vaiParaImovel(){
+    this.router.navigate(['/imovel']);
+  }
 }

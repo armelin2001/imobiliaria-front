@@ -7,9 +7,13 @@
         </mat-card-title-group>
         <mat-card-content>
             <p>{{teste}}</p>
-            <mat-card-actions align="end">
-                <button mat-button>Like</button>
-            </mat-card-actions>
+            <div *ngIf="mostraVisualizar">
+                <mat-card-actions align="end">
+                    <button mat-button (click)="vaiParaImovel()">
+                        <mat-icon class="botaoHome">domain</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </div>
         </mat-card-content>
         
         <mat-card-footer class="footer">
