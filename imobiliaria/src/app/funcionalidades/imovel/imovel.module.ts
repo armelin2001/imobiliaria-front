@@ -5,6 +5,8 @@ import { ImovelComponent } from './imovel.component';
 import { MaterialExampleModule } from 'src/material.module';
 import { CardImoveisComponent } from 'src/app/shared/componentes/card-imoveis/card-imoveis.component';
 import { ListarImoveisComponent } from './listar-imoveis/listar-imoveis.component';
+import { CriarImovelComponent } from './criar-imovel/criar-imovel.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,10 +14,12 @@ import { ListarImoveisComponent } from './listar-imoveis/listar-imoveis.componen
   declarations: [
     DetalheImovelComponent,
     ImovelComponent,
+    CriarImovelComponent,
   ],
   imports: [
     CommonModule,
     MaterialExampleModule,
+    ReactiveFormsModule,
   ],
 })
 export class ImovelModule { }

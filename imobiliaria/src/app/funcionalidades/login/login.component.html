@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+
+    <mat-card-content>
+        <form [formGroup]="formularioLogin" (ngSubmit)="submitForm()" #contratoFrm="ngForm">
+            <p>
+                <mat-form-field>
+                    <input formControlName="email" type="text" matInput placeholder="Email" >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                <input formControlName="senha" type="password" matInput placeholder="Senha" >
+                </mat-form-field>
+            </p>
+            
+            <a mat-menu-item (click)="vaiParaCadastroCliente()">É cliente e não possui cadastro?</a>
+            <p></p>
+            <a mat-menu-item (click)="vaiParaCadastroCorretor()">É corretor e não possui cadastro?</a>
+            <div class="button">
+                <button type="submit" class="botaoLogin" mat-raised-button color="primary">Login</button>
+            </div>
+        </form>
+    </mat-card-content>
+    
+</mat-card>
+

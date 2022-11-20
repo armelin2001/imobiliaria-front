@@ -10,6 +10,8 @@ import { ImovelModule } from './funcionalidades/imovel/imovel.module';
 import { ListarImoveisComponent } from './funcionalidades/imovel/listar-imoveis/listar-imoveis.component';
 import { CardImoveisComponent } from './shared/componentes/card-imoveis/card-imoveis.component';
 import { HomeComponent } from './funcionalidades/home/home.component';
+import { LoginComponent } from './funcionalidades/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { HomeComponent } from './funcionalidades/home/home.component';
     HomeComponent,
     CardImoveisComponent,
     ListarImoveisComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    MaterialExampleModule,    
+    MaterialExampleModule,  
     ImovelModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,8 @@
 <mat-toolbar color="primary" class="toolbar">
     <mat-toolbar-row>
-        <button mat-button (click)="voltaHome()">
-            <mat-icon>home</mat-icon>
-        </button>
-        <button mat-button [matMenuTriggerFor]="menu">Buscar imóveis</button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>Imóveis para alugar</button>
-            <button mat-menu-item>Imóveis para comprar</button>
-        </mat-menu>
-
-        <button mat-button>Para corretores</button>
-
+        <button mat-button (click)="voltaHome()">Buscar imóveis</button>
+        <button mat-button (click)="vaiParaCadastroImovel()">Para corretores</button>
+        <button mat-button (click)="vaiParaLogin()">Login</button>
     </mat-toolbar-row>
 
 </mat-toolbar>

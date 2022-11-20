@@ -12,7 +12,16 @@ export class MenuSuperiorComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   voltaHome(){
     this.router.navigate(['/']);
+  }
+
+  vaiParaCadastroImovel(){
+    this.router.navigate(['/criarimovel']);
+  }
+
+  vaiParaLogin(){
+    this.router.navigate(['/login']);
   }
 }

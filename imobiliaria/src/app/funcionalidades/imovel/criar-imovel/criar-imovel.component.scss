@@ -1,0 +1,28 @@
+.card{
+    width: 50%;
+    height: 50%;
+}
+.divCard{
+    height: 100%;
+    padding-left: 25%;
+    padding-top: 5%;
+    background-color: #eaeaea;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 450px;
+}
+
+mat-card-title,
+mat-card-content {
+    display: flex;
+    justify-content: center;
+}
+.button {
+    display: flex;
+    justify-content: center;
+}
+.botaoImovel{
+    width: 100%;
+}

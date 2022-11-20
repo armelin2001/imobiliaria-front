@@ -1,11 +1,20 @@
-<mat-grid-list cols="6" rowHeight="100%">
-    <mat-grid-tile [colspan]="1" [style.background]="'#C4C3D0'">
-        <p>teste</p>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="4" [style.background]="'#DDBDF1'">
-        <p>meio</p>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [style.background]="'#C4C3D0'">
-        <p>meio</p>
-    </mat-grid-tile>
-</mat-grid-list>
+<div class="divCard">
+    <mat-card class="card">
+        <mat-card-title>{{nomeRua}}</mat-card-title>
+        
+        <mat-card-content>
+            <p>{{tipoImovel}} {{bairro}}</p>
+        </mat-card-content>
+        <mat-card-content>
+            <p>{{estado}} {{cidade}} {{bairro}} - {{cep}}, {{complemento}}</p>
+        </mat-card-content>
+        
+        <mat-card-content>
+            <strong> R$ {{valor}} </strong>
+        </mat-card-content>
+        <img mat-card-image src="https://casa.abril.com.br/wp-content/uploads/2021/09/Apartamento-moderno-de-60m%C2%B2-e%CC%81-pra%CC%81tico-e-conforta%CC%81vel-09.jpg?resize=630,421">
+        <div class="button">
+            <button type="submit" class="botaoLogin" mat-raised-button color="primary">Login</button>
+        </div>   
+    </mat-card> 
+</div>
