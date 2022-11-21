@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CriaCorretorDto } from 'src/app/models/corretor-dto';
 import { CorretorServiceService } from 'src/app/shared/http-service/corretor-service/corretor-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cria-corretor',
@@ -12,11 +14,13 @@ import { CorretorServiceService } from 'src/app/shared/http-service/corretor-ser
 export class CriaCorretorComponent implements OnInit {
 
   formularioCorretor: FormGroup;
-
+  
+  codigos: string[] = [];
   constructor(private formBuilder: FormBuilder,
     private corretorServiceService: CorretorServiceService,
     private router: Router,
-    private activeRouter: ActivatedRoute) { 
+    private activeRouter: ActivatedRoute,
+    public dialog: MatDialog) { 
     this.formularioCorretor = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', Validators.required],
@@ -26,9 +30,16 @@ export class CriaCorretorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.codigos = environment.codigos;
   }
 
   submitForm(){
+    const codigoFormulario = String(this.formularioCorretor.value.codigo);
+    const encotrouCodigo = this.codigos.find((x) => x === codigoFormulario); 
+    if(!encotrouCodigo){
+      this.dialog.open(DialogElementsExampleDialog);
+      return; 
+    }
     if(this.formularioCorretor.valid){
       const corretorCriado = this.getCorretor();
       this.corretorServiceService.criaCorretor(corretorCriado).subscribe(
@@ -57,3 +68,8 @@ export class CriaCorretorComponent implements OnInit {
     return criaCorretor;
   }
 }
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: 'dialog-elements-example-dialog.html',
+})
+export class DialogElementsExampleDialog {}
