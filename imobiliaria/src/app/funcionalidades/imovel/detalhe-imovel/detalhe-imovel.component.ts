@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ImovelDto } from 'src/app/models/imovel-dto';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlugaImovelDto, ImovelDto } from 'src/app/models/imovel-dto';
 import { ImovelService } from 'src/app/shared/http-service/imovel-service/imovel-service';
+import { LocalstorageService } from 'src/app/shared/localstorage/localstorage.service';
 
 @Component({
   selector: 'app-detalhe-imovel',
@@ -20,14 +21,23 @@ export class DetalheImovelComponent implements OnInit {
   idImovel="";
   imovel: ImovelDto = {} as ImovelDto;
   valor=200;
-  constructor(private activeRoute: ActivatedRoute, private imovelService: ImovelService) { }
+  usuarioLogado=false;
+  usuario = this.localStorage.obterUsuario("usuario");
+  ehCorretor = false;
+
+  constructor(private activeRoute: ActivatedRoute, 
+    private imovelService: ImovelService,
+    private localStorage: LocalstorageService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params)=>{
       this.idImovel = params['idImovel'];
     });
     this.carregaImovel();
+    this.verificaUsuarioLogado();
   }
+
   carregaImovel(){
     this.imovelService.getImovelPorId(this.idImovel).subscribe(
       (res)=> {
@@ -50,6 +60,46 @@ export class DetalheImovelComponent implements OnInit {
         this.imovel = imovel;
       }
     );
+  }
 
+  verificaUsuarioLogado(){
+    if(this.usuario && !this.usuario.ehCorretor){
+      this.usuarioLogado = true;
+    }
+    if(this.usuario && this.usuario.ehCorretor){
+      this.ehCorretor = true;
+    }
+  }
+
+  alugaImovel(){
+    if(this.usuario){
+      const alugaImovel: AlugaImovelDto = {
+        idImovel: this.idImovel,
+        idCliente: this.usuario.id,
+      }
+      this.imovelService.alugaImovel(alugaImovel).subscribe(
+        (res)=>{
+          console.log(res);
+          this.router.navigate(['/']);
+        },
+        (error)=>{
+          console.log(error);
+          this.router.navigate(['/']);
+        }
+      );
+    }
+  }
+
+  removeImovel(){
+    this.imovelService.removeImovel(this.idImovel).subscribe(
+      (res)=>{
+        console.log(res);
+        this.router.navigate(['/']);
+      },
+      (error)=>{
+        console.log(error);
+        this.router.navigate(['/']);
+      }
+    )
   }
 }

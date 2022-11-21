@@ -2,7 +2,7 @@
     <mat-card-title>Cadastro de cliente</mat-card-title>
 
     <mat-card-content>
-        <form [formGroup]="formularioCliente">
+        <form [formGroup]="formularioCliente" (ngSubmit)="submitForm()">
             <p>
                 <mat-form-field>
                     <input formControlName="nome" matInput placeholder="Nome">

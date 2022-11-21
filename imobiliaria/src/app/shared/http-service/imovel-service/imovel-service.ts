@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CriarImovelDto } from 'src/app/models/imovel-dto';
+import { AlugaImovelDto, CriarImovelDto } from 'src/app/models/imovel-dto';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -22,7 +22,11 @@ export class ImovelService {
     return this.http.post(`${this.urlbase}/imovel`, imovelCriado);
   }
 
-  removeImovel(id: string){
-    this.http.delete(`${this.urlbase}/imovel/${id}`);
+  removeImovel(id: string): Observable<any>{
+    return this.http.delete(`${this.urlbase}/imovel/${id}`);
+  }
+
+  alugaImovel(alugaImovelDto: AlugaImovelDto): Observable<any>{
+    return this.http.patch(`${this.urlbase}/imovel/aluga`, alugaImovelDto);
   }
 }

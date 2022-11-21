@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CriaCorretorDto } from 'src/app/models/corretor-dto';
 import { CorretorServiceService } from 'src/app/shared/http-service/corretor-service/corretor-service.service';
 
@@ -15,7 +15,8 @@ export class CriaCorretorComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private corretorServiceService: CorretorServiceService,
-    private router: Router) { 
+    private router: Router,
+    private activeRouter: ActivatedRoute) { 
     this.formularioCorretor = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', Validators.required],
@@ -34,19 +35,20 @@ export class CriaCorretorComponent implements OnInit {
         (res)=>{
           console.log(res);
           console.log("Create feito");
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
         },
         (error)=>{
           console.log(error);
           console.log("erro na criação");
-          this.router.navigate(['/']);
+          this.router.navigate(['/', false],{
+            relativeTo: this.activeRouter,
+          });
         }
       );
     }
   }
   getCorretor(): CriaCorretorDto{
     const formularioValoresCorretor = this.formularioCorretor.value;
-    console.log(formularioValoresCorretor);
     const criaCorretor: CriaCorretorDto = {
       email: formularioValoresCorretor.email,
       senha: formularioValoresCorretor.senha,

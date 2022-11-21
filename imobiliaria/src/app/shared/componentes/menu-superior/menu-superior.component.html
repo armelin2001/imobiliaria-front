@@ -1,8 +1,9 @@
 <mat-toolbar color="primary" class="toolbar">
     <mat-toolbar-row>
         <button mat-button (click)="voltaHome()">Buscar imóveis</button>
-        <button mat-button (click)="vaiParaCadastroImovel()">Para corretores</button>
-        <button mat-button (click)="vaiParaLogin()">Login</button>
+        <button *ngIf="mostraCadastroImovel" mat-button (click)="vaiParaCadastroImovel()">Para corretores</button>
+        <button mat-button *ngIf="mostraLogin" (click)="vaiParaLogin()">Login</button>
+        <button  mat-button *ngIf="mostraLogOut" (click)="fazerLogOut()">Sair</button>
     </mat-toolbar-row>
 
 </mat-toolbar>

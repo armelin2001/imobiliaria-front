@@ -15,6 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CorretorServiceService } from './shared/http-service/corretor-service/corretor-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ImovelService } from './shared/http-service/imovel-service/imovel-service';
+import { LoginService } from './shared/http-service/login-service/login.service';
+import { ClienteServiceService } from './shared/http-service/cliente-service/cliente-service.service';
+import { LocalstorageService } from './shared/localstorage/localstorage.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ImovelService } from './shared/http-service/imovel-service/imovel-servi
   ],
   providers: [
     CorretorServiceService,
-    ImovelService
+    ImovelService,
+    LoginService,
+    ClienteServiceService,
+    LocalstorageService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

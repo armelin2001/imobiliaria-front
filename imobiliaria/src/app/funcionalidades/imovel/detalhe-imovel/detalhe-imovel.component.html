@@ -16,7 +16,10 @@
             <strong> R$ {{imovel.valorNegociado}} </strong>
         </mat-card-content>
         <div class="button">
-            <button type="submit" class="botaoLogin" mat-raised-button color="primary" [disabled]="imovel.reservado">Alugar</button>
+            <button (click)="alugaImovel()" type="submit" class="botaoLogin" mat-raised-button color="primary" [disabled]="!usuarioLogado || imovel.reservado">Alugar</button>
+        </div>
+        <div class="button" *ngIf="ehCorretor">
+            <button (click)="removeImovel()" type="submit" class="botaoLogin" mat-raised-button color="primary">Excluir</button>    
         </div>
     </mat-card> 
 </div>

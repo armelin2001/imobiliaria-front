@@ -18,3 +18,7 @@ export interface ImovelDto extends CriarImovelDto{
     venda?: Date;
     reservado: boolean;
 }
+export interface AlugaImovelDto{
+    idImovel: string;
+    idCliente: string;
+}

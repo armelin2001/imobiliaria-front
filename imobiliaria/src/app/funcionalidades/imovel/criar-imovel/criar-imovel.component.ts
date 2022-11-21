@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CriarImovelDto } from 'src/app/models/imovel-dto';
 import { tipoImovel } from 'src/app/shared/enums/tipoImove-enum';
 import { ImovelService } from 'src/app/shared/http-service/imovel-service/imovel-service';
+import { LocalstorageService } from 'src/app/shared/localstorage/localstorage.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class CriarImovelComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     private imovelService: ImovelService,
-    private router: Router,) { 
+    private router: Router,
+    private localStorage: LocalstorageService) { 
     this.formularioImovel = this.formBuilder.group({
       estado: ['', [Validators.required]],
       cidade: ['', [Validators.required]],
@@ -51,9 +53,14 @@ export class CriarImovelComponent implements OnInit {
   }
   getImovel(): CriarImovelDto{
     const formularioValores = this.formularioImovel.value;
+    const usuario = this.localStorage.obterUsuario("usuario");
+    let idUsuario = "630ff9f6e1e4834eae77a79f";
+    if(usuario){
+      idUsuario = usuario.id;
+    }
     const criaImovel: CriarImovelDto = {
       tipoImoveis: tipoImovel.APARTAMENTO,
-      corretorAnunciadoId: "630ff9f6e1e4834eae77a79f",
+      corretorAnunciadoId: idUsuario,// "630ff9f6e1e4834eae77a79f",
       estado: formularioValores.estado,
       bairro: formularioValores.bairro,
       rua: formularioValores.rua,
@@ -63,6 +70,7 @@ export class CriarImovelComponent implements OnInit {
       valorNegociado: formularioValores.valorNegociado,
       criacao: new Date(),
     };
+    console.log(criaImovel);
     return criaImovel;
   }
 }

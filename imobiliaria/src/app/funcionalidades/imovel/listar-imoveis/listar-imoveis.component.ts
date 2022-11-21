@@ -75,7 +75,6 @@ export class ListarImoveisComponent implements OnInit {
       });
     }
     this.carregaImoveis();
-    console.log(this.listaImoveis);
   }
 
   carregaImoveis(){
