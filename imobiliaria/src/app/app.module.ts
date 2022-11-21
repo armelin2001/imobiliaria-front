@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { CardImoveisComponent } from './shared/componentes/card-imoveis/card-imo
 import { HomeComponent } from './funcionalidades/home/home.component';
 import { LoginComponent } from './funcionalidades/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CorretorServiceService } from './shared/http-service/corretor-service/corretor-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ImovelService } from './shared/http-service/imovel-service/imovel-service';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialExampleModule,  
     ImovelModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    CorretorServiceService,
+    ImovelService
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

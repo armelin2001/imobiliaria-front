@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ImovelServiceService } from './imovel-service.service';
+import { ImovelService } from './imovel-service';
 
 describe('ImovelServiceService', () => {
-  let service: ImovelServiceService;
+  let service: ImovelService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ImovelServiceService);
+    service = TestBed.inject(ImovelService);
   });
 
   it('should be created', () => {

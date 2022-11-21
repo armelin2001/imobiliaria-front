@@ -1,20 +1,22 @@
 <div class="divCard">
     <mat-card class="card">
-        <mat-card-title>{{nomeRua}}</mat-card-title>
+        <mat-card-title>{{imovel.rua}}</mat-card-title>
         
         <mat-card-content>
-            <p>{{tipoImovel}} {{bairro}}</p>
+            <p>{{imovel.tipoImoveis}} {{imovel.bairro}}</p>
         </mat-card-content>
+        
+        
+        <img mat-card-image class="imgPredio" src="../../../../assets/imgPredio2.jpg">
         <mat-card-content>
-            <p>{{estado}} {{cidade}} {{bairro}} - {{cep}}, {{complemento}}</p>
+            <p>{{imovel.estado}} {{imovel.cidade}} {{imovel.bairro}} - {{imovel.cep}} {{imovel.complemento}}</p>
         </mat-card-content>
         
         <mat-card-content>
-            <strong> R$ {{valor}} </strong>
+            <strong> R$ {{imovel.valorNegociado}} </strong>
         </mat-card-content>
-        <img mat-card-image src="https://casa.abril.com.br/wp-content/uploads/2021/09/Apartamento-moderno-de-60m%C2%B2-e%CC%81-pra%CC%81tico-e-conforta%CC%81vel-09.jpg?resize=630,421">
         <div class="button">
-            <button type="submit" class="botaoLogin" mat-raised-button color="primary">Login</button>
-        </div>   
+            <button type="submit" class="botaoLogin" mat-raised-button color="primary" [disabled]="imovel.reservado">Alugar</button>
+        </div>
     </mat-card> 
 </div>

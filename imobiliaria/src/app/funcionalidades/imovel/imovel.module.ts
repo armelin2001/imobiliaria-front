@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DetalheImovelComponent } from './detalhe-imovel/detalhe-imovel.component';
 import { ImovelComponent } from './imovel.component';
@@ -7,6 +7,7 @@ import { CardImoveisComponent } from 'src/app/shared/componentes/card-imoveis/ca
 import { ListarImoveisComponent } from './listar-imoveis/listar-imoveis.component';
 import { CriarImovelComponent } from './criar-imovel/criar-imovel.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CorretorServiceService } from 'src/app/shared/http-service/corretor-service/corretor-service.service';
 
 
 
@@ -21,5 +22,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialExampleModule,
     ReactiveFormsModule,
   ],
+  
 })
 export class ImovelModule { }

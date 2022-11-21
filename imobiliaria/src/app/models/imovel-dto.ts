@@ -7,8 +7,14 @@ export interface CriarImovelDto{
     bairro: string;
     rua: string;
     cep: string;
-    complemento: string;
-    valorBase: number;
+    complemento?: string;
+    valorNegociado: number;
     criacao: Date;
     corretorAnunciadoId: string;
+}
+
+export interface ImovelDto extends CriarImovelDto{
+    id: string;
+    venda?: Date;
+    reservado: boolean;
 }

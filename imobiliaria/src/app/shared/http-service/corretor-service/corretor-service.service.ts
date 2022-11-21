@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CriaCorretorDto } from 'src/app/models/corretor-dto';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class CorretorServiceService {
@@ -9,16 +10,16 @@ export class CorretorServiceService {
 
   constructor(private http: HttpClient) {}
 
-  getListaCorretores(){
+  getListaCorretores(): Observable<any>{
     return this.http.get(`${this.urlbase}/corretor`);
   }
 
-  getCorretorPorId(id: string){
+  getCorretorPorId(id: string): Observable<any>{
     return this.http.get(`${this.urlbase}/corretor/${id}`);
   }
 
-  criaCorretor(corretorCriado: CriaCorretorDto){
-    this.http.post(`${this.urlbase}/imovel`, corretorCriado);
+  criaCorretor(corretorCriado: CriaCorretorDto): Observable<any>{
+    return this.http.post(`${this.urlbase}/corretor`, corretorCriado);
   }
 
 }

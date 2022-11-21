@@ -1,6 +1,6 @@
 .card{
-    width: 80%;
-    height: 80%;
+    width: 40%;
+    height: 45%;
 }
 mat-card-title,
 mat-card-content {
@@ -9,7 +9,7 @@ mat-card-content {
 }
 .divCard{
     height: 100%;
-    padding-left: 25%;
+    padding-left: 40%;
     padding-top: 5%;
     background-color: #eaeaea;
 }
@@ -21,4 +21,10 @@ mat-card-content {
 }
 .botaoLogin{
     width: 50%;
+}
+.imgPredio{
+    padding-left: 25%;
+    padding-right: 15%;
+    width: 52%;
+    height: 50%;
 }

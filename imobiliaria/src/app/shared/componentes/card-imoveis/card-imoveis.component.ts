@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-imoveis',
@@ -20,16 +20,21 @@ export class CardImoveisComponent implements OnInit {
   @Input()
   bairroEestado: string = '';
 
+  @Input()
+  idImovel: string = '';
+
   teste = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque minima veniam, '
   
   mostraVisualizar = true;
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   vaiParaImovel(){
-    this.router.navigate(['/imovel']);
+    this.router.navigate(['/imovel', this.idImovel],{
+      relativeTo: this.activeRouter,
+    });
   }
 }

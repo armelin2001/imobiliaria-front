@@ -1,10 +1,22 @@
 <mat-grid-list cols="5" gutterSize="15px">
-    <mat-grid-tile colspan="1" *ngFor="let imovel of imoveis">
+    <mat-grid-tile colspan="1" *ngFor="let imovel of listaImoveis"> <!--  imoveis    -->
+      <!--
+        SUBISTITUIR 
+        [bairroEestado]="imovel.bairro + ', ' + imovel.estado"
+        [valor]="imovel.valorNegociado"
+        [nomeRua]="imovel.rua"
+      -->
       <app-card-imoveis 
-      [tipoImovel]="imovel.tipoImovel"
+      [tipoImovel]="imovel.tipoImoveis"
+      [bairroEestado]="imovel.bairro + ', ' + imovel.estado"
+      [valor]="imovel.valorNegociado"
+      [idImovel]="imovel.id"
+      [nomeRua]="imovel.rua"
+    ></app-card-imoveis>
+    <!--
       [bairroEestado]="imovel.bairroEestado"
       [valor]="imovel.valor"
       [nomeRua]="imovel.nomeRua"
-    ></app-card-imoveis>
+    -->
     </mat-grid-tile>
 </mat-grid-list>

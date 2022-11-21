@@ -10,7 +10,7 @@ import { LoginComponent } from './funcionalidades/login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path:'imovel', component: ImovelComponent},
+  {path:'imovel/:idImovel', component: ImovelComponent},
   {path:'login', component: LoginComponent},
   {path: 'criarimovel', component: CriarImovelComponent},
   {

@@ -1,6 +1,6 @@
 export enum tipoImovel{
-    APARTAMENTO = "Apartamento",
-    STUDIO = "Studio",
-    FAZENDA = "Fazenda",
-    CASA = "Casa",
+    APARTAMENTO = "APARTAMENTO",
+    STUDIO = "STUDIO",
+    FAZENDA = "FAZENDA",
+    CASA = "CASA",
 }
